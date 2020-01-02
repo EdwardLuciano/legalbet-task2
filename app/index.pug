@@ -1,0 +1,102 @@
+include includes/mixins.pug
+- var titlepage = 'База знаний'
+
+doctype html
+html
+	head
+		title="legalbet"
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		link(rel="stylesheet", href="css/style.min.css")
+	body 
+		.layout
+			.main
+				.backdrop.hide
+				.menu-mobile
+					.close
+						.close__btn
+					+menu(['Букмекеры','Бонусы','Прогнозы','Беттинг-центр','Эксперты','Блоги','База знаний'], 'header', {active: ""})
+				header
+					.container
+						.header-items
+								.header-items__menu
+									.logo
+										a(href="/")
+											img(src="img/logo.svg")
+									+menu(['Букмекеры','Бонусы','Прогнозы','Беттинг-центр','Эксперты','Блоги','База знаний'], 'header', {active: ""})
+								.title-page.hide-lg !{titlepage}
+								.header-items__actions
+										a.link-support(href="#") 
+											span Поддержка
+											.indicator.link-support__indicator
+										a.search(href="#") 
+											span Поиск
+										.profile 
+											span FL
+											.indicator.profile__indicator
+								.header-items__toggler.show.hide-lg
+									.toggler
+										.toggler__btn
+										.toggler__indicator.indicator
+				.content
+					.container
+						.row
+							.col-lg-9
+								.submenu.hide-lg
+									+menu(['Школа ставок','FAQ','Вопрос-ответ','Советы игроков', 'Калькулятор расчета выигрыша'], 'aside', {active: "Калькулятор расчета выигрыша"})
+								.list-bookmakers
+									.tape
+										img(src="img/icons/tape.svg")
+									.list-bookmakers__title Букмекерские конторы 
+										br
+										| с высокими коэффициентами
+									.list-bookmakers-row.list-bookmakers-row_head
+										.list-bookmakers-row__col Букмекер
+										.list-bookmakers-row__col Маржа
+										.list-bookmakers-row__col Отзывы
+										.list-bookmakers-row__col Бонус
+										.list-bookmakers-row__col
+									+list-bookmakers({
+										1: {
+											"logo": "img/logo-marathon.png",
+											"button": false
+										},
+										2: {
+											"logo": "img/logo-1xstavka.png",
+											"button": true
+										},
+										3: {
+											"logo": "img/logo-olimp.png",
+											"button": true
+										},
+										4: {
+											"logo": "img/logo-888.png",
+											"button": false
+										}
+									})
+ 
+
+							.col-lg-3
+								.right-menu
+									+menu(['Школа ставок','FAQ','Вопрос-ответ','Советы игроков', 'Калькулятор расчета выигрыша'], 'aside', {active: "Калькулятор расчета выигрыша"})
+								.form-course
+									.form-course__header
+										h3 Курс молодого ставочника
+										.icon
+											img(src="img/icons/orange-book.svg")
+									.form-course__description Помогаем разобраться со ставками и букмекерскими конторами
+										.more
+											a(href="#") Подробности
+									form.form-course__fields
+										input.input-field(placeholder="Ваше имя",name="name",type="text",required="requried")
+										input.input-field(placeholder="Email",name="email",type="text",required="requried")
+										input.btn.btn_blue(type="submit", value="Подписаться на курс")
+										.custom-checkbox
+											input.custom-checkbox__check(type="checkbox", id="checkbox-agree", checked="checked")
+											label.custom-checkbox__label(for="checkbox-agree") 
+												span Соглашаюсь с 
+													a(href="#") условиями
+			.sidebar
+
+
+	script(src="js/libs.min.js")
+	script(src="js/main.min.js")

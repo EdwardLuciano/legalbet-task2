@@ -1,0 +1,36 @@
+mixin menu(items, type, options)
+	ul(class="menu"+(type=='aside' ? ' aside': ''))
+		each item in items
+			li(class=options.active==item ? 'active': '')
+				a(href="#")= item
+mixin list-bookmakers(bookmakers)
+	each bookmaker in bookmakers
+			.list-bookmakers-row
+				.list-bookmakers-row__col
+					.logo-bookmaker
+						img(src=bookmaker.logo)
+				.list-bookmakers-row__col
+					.margin
+						.margin__percent 2,67%
+						.margin__options
+							.options
+								.options__btn
+
+
+				.list-bookmakers-row__col
+					.reviews-count
+						.reviews-count__icon
+							img(src="img/icons/review.svg")
+						.reviews-count__number 138
+
+
+				.list-bookmakers-row__col
+					.gift-bookmaker
+						.gift-bookmaker__icon
+							img(src="img/icons/gift.svg")
+						.gift-bookmaker__text 2 000 ₽
+				.list-bookmakers-row__col
+					if bookmaker.button
+						a.btn.btn_red(href="#") На сайт
+					.arrow-right
+						img(src="img/icons/arrow-right.svg")

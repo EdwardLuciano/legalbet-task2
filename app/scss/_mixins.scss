@@ -1,0 +1,6 @@
+@mixin font-size($size) {
+	font-size: ($size/#{$font-size-default}rem);
+}
+@function rem($size) {
+	@return $size/#{$font-size-default}rem;
+}
